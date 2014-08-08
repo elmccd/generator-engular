@@ -16,7 +16,6 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         //yeoman.generators.NamedBase.apply(this, arguments);
         this.promptedModuleName = promptedModuleName;
         this.pkg = require('../package.json');
-
         this.on('end', function () {
             var modules = this.config.get('modules');
             if (!modules) {
@@ -38,9 +37,27 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
 
             //update angular_modules.less
             //@TODO use path.join to normalize paths
+            //@TODO add helper function to things like below
             var moduleLessPath = path.relative('app/styles', this.dir + this.name + '.less');
             fs.appendFile('app/styles/modules_angular.less', '@import "' + moduleLessPath + '";\n');
             this.log.writeln(chalk.green(' updating') + ' %s', 'app/styles/modules_angular.less');
+
+            //update index.html
+            var moduleJsPath = path.relative('app', this.dir + this.name + '.js');
+            var fileTemplate = '<script src="' + moduleJsPath + '"></script>\n<!-- Add New Component JS Above -->';
+            fs.readFile('app/index.html', 'utf8', function (err,data) {
+                if (err) {
+                    return console.log(err);
+                }
+
+                var result = data.replace('<!-- Add New Component JS Above -->', fileTemplate);
+
+                fs.writeFile('app/index.html', result, 'utf8', function (err) {
+                    if (err) return console.log(err);
+
+                });
+            });
+            this.log.writeln(chalk.green(' updating') + ' %s', 'app/index.html');
         });
     },
     askFor: function () {
