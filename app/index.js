@@ -7,55 +7,61 @@ var chalk = require('chalk');
 
 
 var EngularGenerator = yeoman.generators.Base.extend({
-  init: function () {
-    this.pkg = require('../package.json');
+    init: function () {
+        this.pkg = require('../package.json');
 
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies();
-      }
-    });
-  },
+        this.on('end', function () {
+            this.config.set('modules', []);
+            this.config.set('appName', this.appName);
+            this.config.save();
 
-  askFor: function () {
-    var done = this.async();
+            if (!this.options['skip-install']) {
+                this.installDependencies();
+            }
+        });
+    },
 
-    // Have Yeoman greet the user.
-    this.log(yosay('Welcome to the marvelous Engular generator!'));
+    askFor: function () {
+        var done = this.async();
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
 
-    this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+        // Have Yeoman greet the user.
+        this.log(yosay('Welcome to the marvelous Engular generator!'));
 
-      done();
-    }.bind(this));
-  },
+        var prompts = [
+            {
+                name: 'appName',
+                message: 'What would you like the angular app name to be?',
+                default: path.basename(process.cwd())
+            }
+        ];
 
-  app: function () {
+        this.prompt(prompts, function (props) {
+            this.appName = props.appName;
 
-      this.directory('', '');// script is folder name
+            done();
+        }.bind(this));
+    },
 
-      this.mkdir('app/assets/font');
-      this.mkdir('app/assets/img');
-      this.mkdir('app/common');
-      this.mkdir('app/modules');
-      this.mkdir('app/styles/base');
-      this.mkdir('app/styles/modules');
-      this.mkdir('app/styles/state');
-      this.mkdir('app/styles/themes');
-      this.mkdir('app/styles/tools');
+    app: function () {
 
-  },
+        this.directory('', '');// script is folder name
 
-  projectfiles: function () {
+        this.mkdir('app/assets/font');
+        this.mkdir('app/assets/img');
+        this.mkdir('app/common');
+        this.mkdir('app/modules');
+        this.mkdir('app/styles/base');
+        this.mkdir('app/styles/modules');
+        this.mkdir('app/styles/state');
+        this.mkdir('app/styles/themes');
+        this.mkdir('app/styles/tools');
 
-  }
+    },
+
+    projectfiles: function () {
+
+    }
 });
 
 module.exports = EngularGenerator;
