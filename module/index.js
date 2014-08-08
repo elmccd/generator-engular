@@ -2,6 +2,7 @@
 var util = require('util');
 var fs = require('fs');
 var path = require('path');
+var chalk = require('chalk');
 var _ = require('underscore');
 var yeoman = require('yeoman-generator');
 var ngParseModule = require('ng-parse-module');
@@ -39,6 +40,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
             //@TODO use path.join to normalize paths
             var moduleLessPath = path.relative('app/styles', this.dir + this.name + '.less');
             fs.appendFile('app/styles/modules_angular.less', '@import "' + moduleLessPath + '";\n');
+            this.log.writeln(chalk.green(' updating') + ' %s', 'app/styles/modules_angular.less');
         });
     },
     askFor: function () {
