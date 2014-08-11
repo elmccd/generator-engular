@@ -2,6 +2,6 @@ angular.module('<%= _.camelize(name) %>', ['ui.bootstrap', 'ui.utils', 'ui.route
 
 angular.module('<%= _.camelize(name) %>').config(function ($stateProvider) {
 
-    /* Add New States Above */
+  /* Add New States Above */
 
 });
