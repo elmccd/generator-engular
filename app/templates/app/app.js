@@ -5,7 +5,7 @@ angular.module('<%= _.camelize(appName) %>').config(function ($stateProvider, $u
 
   /* Add New States Above */
 
- // $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/');
 
 });

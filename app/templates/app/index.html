@@ -28,33 +28,65 @@
   <!-- bower:css -->
   <!-- endbower -->
 
-  <link rel="stylesheet" href="bootstrap.css">
-  <!-- other stuff -->
   <link rel="stylesheet" href="app.css">
 
 </head>
 <body>
-<header class="app-bar promote-layer">
-  <div class="app-bar-container">
-    <h1 class="logo">Web Starter Kit</h1>
-    <section class="app-bar-actions">
-      <!-- Put App Bar Buttons Here -->
-    </section>
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a href="#">
+          Start Bootstrap
+        </a>
+      </li>
+      <li>
+        <a href="#">Dashboard</a>
+      </li>
+      <li>
+        <a href="#">Shortcuts</a>
+      </li>
+      <li>
+        <a href="#">Overview</a>
+      </li>
+      <li>
+        <a href="#">Events</a>
+      </li>
+      <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+        <a href="#">Services</a>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
   </div>
-</header>
+  <!-- /#sidebar-wrapper -->
 
-<nav class="navdrawer-container promote-layer">
-  <h4>Navigation</h4>
-  <ul>
-    <li><a href="#hello">Hello</a></li>
-    <li><a href="#get-started">Get Started</a></li>
-    <li><a href="styleguide/index.html">Style Guide</a></li>
-  </ul>
-</nav>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Simple Sidebar</h1>
+          <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+          <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
 
-<main>
-  <div ui-view></div>
-</main>
+          <h2>ui-view</h2>
+          <main ui-view></main>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+
 
 <!-- bower:js -->
 <!-- endbower -->
@@ -81,5 +113,6 @@
   ga('send', 'pageview');
 </script>
 <!-- Built with love using Web Starter Kit -->
+
 </body>
 </html>
