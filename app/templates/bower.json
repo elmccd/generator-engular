@@ -1,6 +1,7 @@
 {
   "name": "templates",
   "version": "0.0.0",
+  "directory": "app/bower_components",
   "authors": [
     "Maciej Dudziński <maciej.dudzinski@codete.co>"
   ],
@@ -12,19 +13,19 @@
     "test",
     "tests"
   ],
-    "dependencies": {
-        "jquery": "~2.0",
-        "underscore": "~1.5",
-        "bootstrap": "~3.1",
-        "angular": "~1.2",
-        "angular-ui-router": "~0.2",
-        "angular-animate": "~1.2",
-        "angular-resource": "~1.2",
-        "angular-cookies": "~1.2",
-        "angular-mocks": "~1.2",
-        "angular-ui-utils": "~0.1",
-        "angular-bootstrap": "~0.10",
-        "moment": "~2.5",
-        "font-awesome": "~4.0"
-    }
+  "dependencies": {
+    "jquery": "~2.0",
+    "underscore": "~1.5",
+    "bootstrap": "~3.1",
+    "angular": "~1.2",
+    "angular-ui-router": "~0.2",
+    "angular-animate": "~1.2",
+    "angular-resource": "~1.2",
+    "angular-cookies": "~1.2",
+    "angular-mocks": "~1.2",
+    "angular-ui-utils": "~0.1",
+    "angular-bootstrap": "~0.10",
+    "moment": "~2.5",
+    "font-awesome": "~4.0"
+  }
 }
