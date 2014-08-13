@@ -55,7 +55,7 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
   },
 
   files: function () {
-    this.copy('partial.js', path.join('app', this.moduleDir, 'partials', this.name, this.name + '-partial.js'));
+    this.copy('partial.js.tpl', path.join('app', this.moduleDir, 'partials', this.name, this.name + '-partial.js'));
     this.copy('partial-spec.js', path.join('app', this.moduleDir, 'partials', this.name, this.name + '-partial-spec.js'));
     this.copy('partial.html', path.join('app', this.moduleDir, 'partials', this.name, this.name + '-partial.html'));
     this.copy('partial.less', path.join('app', this.moduleDir, 'partials', this.name, this.name + '-partial.less'));
