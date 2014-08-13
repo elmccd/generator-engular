@@ -1,6 +1,6 @@
 $stateProvider.state('<%= statename %>', {
   url: '<%= route %>',
-  templateUrl: '<%= templateUrl %>',
+  templateUrl: '/<%= templateUrl %>',
   controller: '<%= ctrlname %>',
   resolve: {
     getMe: function () {

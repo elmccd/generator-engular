@@ -46,7 +46,7 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
 
   files: function () {
     console.log(this.module, this.name);
-    this.copy('directive.js', path.join('app', this.moduleDir, 'directives', this.name, this.name + '-directive.js'));
+    this.copy('directive.js.tpl', path.join('app', this.moduleDir, 'directives', this.name, this.name + '-directive.js'));
     this.copy('directive-spec.js', path.join('app', this.moduleDir, 'directives', this.name, this.name + '-directive-spec.js'));
     this.copy('directive.html', path.join('app', this.moduleDir, 'directives', this.name, this.name + '-directive.html'));
     this.copy('directive.less', path.join('app', this.moduleDir, 'directives', this.name, this.name + '-directive.less'));

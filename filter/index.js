@@ -45,7 +45,7 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
 
   files: function () {
     console.log(this.module, this.name);
-    this.copy('filter.js', path.join('app', this.moduleDir, 'filters', this.name, this.name + '-filter.js'));
+    this.copy('filter.js.tpl', path.join('app', this.moduleDir, 'filters', this.name, this.name + '-filter.js'));
     this.copy('filter-spec.js', path.join('app', this.moduleDir, 'filters', this.name, this.name + '-filter-spec.js'));
 
     //update index.html

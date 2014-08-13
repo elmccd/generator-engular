@@ -1,3 +1,10 @@
+/**
+ * @ngdoc overview
+ * @name <%= module %>.controller:<%= ctrlname %>
+ * @description
+ *
+ */
+
 !(function () {
 
   function <%= ctrlname %>() {

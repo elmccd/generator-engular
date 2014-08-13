@@ -69,7 +69,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
     }.bind(this));
   },
   files: function () {
-    this.copy('module.js', path.join('app', this.dir + this.name + '.js'));
+    this.copy('module.js.tpl', path.join('app', this.dir + this.name + '.js'));
     this.copy('module.less', path.join('app', this.dir + this.name + '.less'));
   }
 });
