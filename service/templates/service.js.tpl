@@ -4,7 +4,7 @@
  * @description
  */
 
-!(function () {
+(function () {
 
   function <%= name %>Service() {
     var <%= name %> = {};

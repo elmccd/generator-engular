@@ -31,7 +31,7 @@
  </doc:example>
  */
 
-!(function () {
+(function () {
 
   function <%= name %>Filter() {
     return function (input, arg) {

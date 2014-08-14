@@ -2,9 +2,7 @@
   "name": "templates",
   "version": "0.0.0",
   "directory": "app/bower_components",
-  "authors": [
-    "Maciej Dudziński <maciej.dudzinski@codete.co>"
-  ],
+  "authors": [],
   "license": "MIT",
   "ignore": [
     "**/.*",

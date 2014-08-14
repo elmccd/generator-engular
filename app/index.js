@@ -75,6 +75,7 @@ var EngularGenerator = yeoman.generators.Base.extend({
     this.directory('app', 'app');
     this.directory(this.cssPre, 'app');
     this.directory('configs', '.');
+    this.directory('configs/tasks', './tasks');
 
     this.mkdir('app/assets/font');
     this.mkdir('app/assets/img');

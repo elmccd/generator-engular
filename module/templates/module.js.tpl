@@ -5,7 +5,7 @@
  * <%= _.camelize(name) %> module
  */
 
-!(function () {
+(function () {
 
   function <%= _.camelize(name) %>Config($stateProvider) {
 

@@ -33,7 +33,7 @@
  </doc:example>
  */
 
-!(function () {
+(function () {
 
   function <%= name %>() {
     return {

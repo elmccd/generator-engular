@@ -5,7 +5,7 @@
  *
  */
 
-!(function () {
+(function () {
 
   function <%= ctrlname %>() {
 
