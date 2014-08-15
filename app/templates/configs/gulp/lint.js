@@ -1,6 +1,4 @@
-/* global $:true */
-var $ = require('gulp-load-plugins')();
-var Lint = function (gulp) {
+var Lint = function (gulp, $) {
 
   gulp.task('lint', function () {
     return gulp.src([

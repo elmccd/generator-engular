@@ -42,9 +42,9 @@ var EngularGenerator = yeoman.generators.Base.extend({
         default: path.basename(process.cwd())
       },
       {
-        name: 'cssPre',
+        name: 'cssPreprocessor',
         type: 'list',
-        message: 'Which CSS preprocessor would you like to use?',
+        message: 'Which CSS preprocessor would you like to use? (with equivalent bootstrap version)',
         choices: [
           {
             name: 'SASS',
@@ -56,7 +56,7 @@ var EngularGenerator = yeoman.generators.Base.extend({
           },
           {
             name: 'Stylus',
-            value: 'styl'
+            value: 'stylus'
           }
         ]
       }
@@ -64,7 +64,7 @@ var EngularGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.appName = _.str.camelize(props.appName);
-      this.cssPre = props.cssPre;
+      this.cssPreprocessor = props.cssPreprocessor;
 
       done();
     }.bind(this));
@@ -73,16 +73,16 @@ var EngularGenerator = yeoman.generators.Base.extend({
   app: function () {
 
     this.directory('app', 'app');
-    this.directory(this.cssPre, 'app');
+    this.directory(this.cssPreprocessor, 'app');
     this.directory('configs', '.');
-    this.directory('configs/tasks', './tasks');
+    this.directory('configs/gulp', './gulp');
 
     this.mkdir('app/assets/font');
     this.mkdir('app/assets/img');
     this.mkdir('app/common');
     this.mkdir('app/modules');
     this.mkdir('app/styles/base');
-    this.mkdir('app/styles/modules');
+    this.mkdir('app/styles/components');
     this.mkdir('app/styles/state');
     this.mkdir('app/styles/themes');
     this.mkdir('app/styles/tools');

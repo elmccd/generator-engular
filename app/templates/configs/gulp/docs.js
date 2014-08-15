@@ -1,8 +1,6 @@
-/* global $:true */
 var opn = require('opn');
-var $ = require('gulp-load-plugins')();
 
-var Docs = function (gulp) {
+var Docs = function (gulp, $, config) {
 
   gulp.task('dist', function () {
     var assets = $.useref.assets();
@@ -13,15 +11,11 @@ var Docs = function (gulp) {
       .pipe(gulp.dest('dist'));
   });
 
-  gulp.task('ngdocs', function () {
+  gulp.task('ngdocs', ['docs_clear'], function () {
     return gulp.src(['app/index.html'], {read: false})
       .pipe($.shell([
         'grunt ngdocs'
       ]));
-  });
-
-  gulp.task('docs_build', function () {
-    return gulp.run('dist', 'ngdocs');
   });
 
   gulp.task('docs_clear', function () {
@@ -31,9 +25,12 @@ var Docs = function (gulp) {
   gulp.task('docs_server', function () {
     $.connect.server({
       root: 'docs',
-      port: 5001
+      port: config.docs.port
     });
-    return opn('http://localhost:5001');
+
+    if(config.docs.openBrowser) {
+       opn('http://localhost:' + config.docs.port);
+    }
   });
 };
 

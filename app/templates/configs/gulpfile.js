@@ -1,15 +1,21 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
-require('./tasks/server.js')(gulp);
+var $ = require('gulp-load-plugins')();
 
-require('./tasks/docs.js')(gulp);
+var config = require('./gulp/config.js');
 
-require('./tasks/watch.js')(gulp);
+var utils = require('./gulp/utils.js')(gulp, $, config);
 
-require('./tasks/bower.js')(gulp);
+require('./gulp/server.js')(gulp, $, config);
 
-require('./tasks/lint.js')(gulp);
+require('./gulp/docs.js')(gulp, $, config);
+
+require('./gulp/watch.js')(gulp, $, config, utils);
+
+require('./gulp/bower.js')(gulp, $, config);
+
+require('./gulp/lint.js')(gulp, $, config);
 
 
 gulp.task('default', ['server', 'watch', 'docs']);
@@ -19,6 +25,6 @@ gulp.task('watch', ['css_app', 'css_bootstrap', 'html', 'js'], function () {
 });
 
 gulp.task('docs', function () {
-  return runSequence('docs_build', 'docs_server');
+  return runSequence('dist', 'ngdocs', 'docs_server');
 });
 
