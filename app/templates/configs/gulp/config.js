@@ -1,25 +1,34 @@
 var Config = {};
 
 Config.options = {
-  cssPreprocessor: '<%= cssPreprocessor %>',
-  cssPreprocessorExt: '<%= cssPreprocessor === "stylus" ? "styl" : (cssPreprocessor === "sass" ? "scss" : cssPreprocessor) %>'
+  cssPreprocessor: 'stylus',
+  cssPreprocessorExt: 'styl'
 };
 
 Config.server = {
   port: 5000,
   liveReload: true,
-  liveReloadPort: 35729,
+  liveReloadPort: 35731,
   openBrowser: true
 };
 
 Config.docs = {
   port: 5001,
+  liveReload: true,
+  liveReloadPort: 35732,
+  openBrowser: true
+};
+
+Config.bootstrapPreview = {
+  port: 5002,
+  liveReload: true,
+  liveReloadPort: 35733,
   openBrowser: true
 };
 
 Config.watch = {
   jshint: true,
-  cssSourceMap: true,
+  cssSourceMap: true, //when false livReload doesn't make full reload - faster
   updateDocs: true
 };
 

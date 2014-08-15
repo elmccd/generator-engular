@@ -11,6 +11,8 @@ require('./gulp/server.js')(gulp, $, config);
 
 require('./gulp/docs.js')(gulp, $, config);
 
+require('./gulp/bootstrap_preview.js')(gulp, $, config);
+
 require('./gulp/watch.js')(gulp, $, config, utils);
 
 require('./gulp/bower.js')(gulp, $, config);
@@ -25,6 +27,6 @@ gulp.task('watch', ['css_app', 'css_bootstrap', 'html', 'js'], function () {
 });
 
 gulp.task('docs', function () {
-  return runSequence('dist', 'ngdocs', 'docs_server');
+  return runSequence('dist', 'ngdocs', 'ngdocs_server', 'bootstrap-preview');
 });
 

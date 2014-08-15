@@ -5,14 +5,14 @@ module.exports = function (grunt) {
   grunt.initConfig({
     ngdocs: {
       options: {
-        dest: 'docs',
+        dest: 'docs/ngdocs',
         scripts: [
           'dist/vendors.js',
           'dist/app.js'
         ],
         html5Mode: false,
         startPagegrunt: '/api',
-        title: "To.Do Docs",
+        title: "Docs",
         titleLink: "/",
         bestMatch: true
       },

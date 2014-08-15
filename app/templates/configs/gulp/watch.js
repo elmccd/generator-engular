@@ -6,12 +6,12 @@ var Watch = function (gulp, $, config, utils) {
       emitOnGlob: false
     }, function (files) {
       if (config.watch.updateDocs) {
-        gulp.run('ngdocs');
+        gulp.run('ngdocs_rebuild');
       }
       return files
         .pipe(config.watch.jshint ? $.jshint() : $.util.noop())
         .pipe(config.watch.jshint ? $.jshint.reporter('jshint-summary') : $.util.noop())
-        .pipe(config.server.liveReload ? $.livereload(config.server.liveReloadPort) : $.util.noop());
+        .pipe(config.server.liveReload ? $.livereload(config.server.liveReloadPort) : $.util.noop())
     });
   });
 

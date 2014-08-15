@@ -9,8 +9,8 @@ var Server = function (gulp, $, config) {
 
     if (config.server.liveReload) {
       server.use(liveReload({
-        port: config.server.liveReloadPort,
-        src: 'http://localhost:' + config.server.liveReloadPort + '/livereload.js?snipver=1'
+        port: 35731,
+        src: "http://localhost:35731/livereload.js?snipver=1"
       }));
       $.livereload.listen(config.server.liveReloadPort);
     }
