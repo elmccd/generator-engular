@@ -31,13 +31,13 @@ $ yo engular
 
 `gulp wiredep` - inject bower dependencies to index.html
 
-`gulp styles-app` - generate app.css
+`gulp watch` - build styles and watch for html, css, js changes
 
-`gulp styles-bootstrap` - generate bootstrap.css (from bootstrap files and styles/themes)
+`gulp docs` - build and serve ngdocs
 
-`gulp styles` - generate all styles
+`gulp server` - serve app
 
-`gulp watch` - open live reload server and watch for changes in html/js/css files
+`gulp` - run `wiredep` `server` `docs`, `watch`
 
 ## License
 
