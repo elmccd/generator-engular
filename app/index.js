@@ -10,18 +10,8 @@ _.str = require('underscore.string');
 
 var EngularGenerator = yeoman.generators.Base.extend({
   init: function () {
-    this.pkg = require('../package.json');
-    this.on('end', function () {
-      this.config.set('modules', [
-        {
-          'name': this.appName,
-          'dir': 'common/',
-          'path': 'app.js'
-        }
-      ]);
-      this.config.set('appName', this.appName);
-      this.config.save();
 
+    this.on('end', function () {
       if (!this.options['skip-install']) {
         this.installDependencies();
       }
@@ -65,6 +55,16 @@ var EngularGenerator = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.appName = _.str.camelize(props.appName);
       this.cssPreprocessor = props.cssPreprocessor;
+
+      this.config.set('modules', [
+        {
+          'name': this.appName,
+          'dir': 'common/',
+          'path': 'app.js'
+        }
+      ]);
+      this.config.set('appName', this.appName);
+      this.config.save();
 
       done();
     }.bind(this));
