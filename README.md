@@ -41,23 +41,32 @@ $ yo engular:service   [module_name]
 
 `gulp serve` - serve app
 
-`gulp` - run `wiredep` `styles` `server` `docs`, `watch`
+`gulp` - run `wiredep` `styles` `server` `docs` `watch`
 
 ## Running tests
 ###Unit
-`[sudo] npm install karma-cli -g`
-`karma start karma.config.js`
+```bash
+$ [sudo] npm install karma-cli -g
+$ karma start karma.config.js
+```bash
 or
-`node_modules/karma/bin/karma start karma.config.js`
+```bash
+node_modules/karma/bin/karma start karma.config.js
+```
 
 ###e2e
-`node_modules/protractor/bin/webdriver-manager update`
-`node_modules/protractor/bin/webdriver-manager start`
-
-`[sudo] npm install protractor -g`
-`protractor protractor_conf.js`
+```bash
+node_modules/protractor/bin/webdriver-manager update
+node_modules/protractor/bin/webdriver-manager start
+```
+```bash
+[sudo] npm install protractor -g
+protractor protractor_conf.js
+```
 or
-`node_modules/protractor/bin/protractor protractor_conf.js`
+```bash
+node_modules/protractor/bin/protractor protractor_conf.js
+```
 
 ## License
 
