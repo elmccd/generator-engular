@@ -48,24 +48,24 @@ $ yo engular:service   [module_name]
 ```bash
 $ [sudo] npm install karma-cli -g
 $ karma start karma.config.js
-```bash
+```
 or
 ```bash
-node_modules/karma/bin/karma start karma.config.js
+$ node_modules/karma/bin/karma start karma.config.js
 ```
 
 ###e2e
 ```bash
-node_modules/protractor/bin/webdriver-manager update
-node_modules/protractor/bin/webdriver-manager start
+$ node_modules/protractor/bin/webdriver-manager update
+$ node_modules/protractor/bin/webdriver-manager start
 ```
 ```bash
 [sudo] npm install protractor -g
-protractor protractor_conf.js
+$ protractor protractor_conf.js
 ```
 or
 ```bash
-node_modules/protractor/bin/protractor protractor_conf.js
+$ node_modules/protractor/bin/protractor protractor_conf.js
 ```
 
 ## License
