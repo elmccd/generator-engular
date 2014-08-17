@@ -1,7 +1,7 @@
 'use strict';
 var fs = require('fs');
 var util = require('util');
-var utils = require('../utils.js');
+var utils = require('../../utils.js');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var _ = require('underscore');
@@ -45,11 +45,11 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
 
   files: function () {
     console.log(this.module, this.name);
-    this.copy('filter.js.tpl', path.join('app', this.moduleDir, 'filters', this.name, this.name + '-filter.js'));
-    this.copy('filter-spec.js', path.join('app', this.moduleDir, 'filters', this.name, this.name + '-filter-spec.js'));
+    this.copy('filter.js.tpl', path.join('app', this.moduleDir, 'filters', this.name, this.name + '.filter.js'));
+    this.copy('filter-spec.js', path.join('app', this.moduleDir, 'filters', this.name, this.name + '.filter.spec.js'));
 
     //update index.html
-    utils.insertScript(path.join(this.moduleDir, 'filters', this.name, this.name + '-filter.js'), '<!-- Add New Component JS Above -->');
+    utils.insertScript(path.join(this.moduleDir, 'filters', this.name, this.name + '.filter.js'), '<!-- Add New Component JS Above -->');
   }
 });
 

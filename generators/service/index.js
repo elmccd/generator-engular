@@ -1,7 +1,7 @@
 'use strict';
 var fs = require('fs');
 var util = require('util');
-var utils = require('../utils.js');
+var utils = require('../../utils.js');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var _ = require('underscore');
@@ -45,11 +45,11 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
 
   files: function () {
     console.log(this.module, this.name);
-    this.copy('service.js.tpl', path.join('app', this.moduleDir, 'services', this.name, this.name + '-service.js'));
-    this.copy('service-spec.js.tpl', path.join('app', this.moduleDir, 'services', this.name, this.name + '-service-spec.js'));
+    this.copy('service.js.tpl', path.join('app', this.moduleDir, 'services', this.name, this.name + '.service.js'));
+    this.copy('service-spec.js.tpl', path.join('app', this.moduleDir, 'services', this.name, this.name + '.service-spec.js'));
 
     //update index.html
-    utils.insertScript(path.join(this.moduleDir, 'services', this.name, this.name + '-service.js'), '<!-- Add New Component JS Above -->');
+    utils.insertScript(path.join(this.moduleDir, 'services', this.name, this.name + '.service.js'), '<!-- Add New Component JS Above -->');
   }
 });
 

@@ -1,3 +1,4 @@
+var runSequence = require('run-sequence');
 var Watch = function (gulp, $, config, utils) {
 
   gulp.task('js', function () {
@@ -6,7 +7,7 @@ var Watch = function (gulp, $, config, utils) {
       emitOnGlob: false
     }, function (files) {
       if (config.watch.updateDocs) {
-        gulp.run('ngdocs');
+        return runSequence('dist', 'ngdocs');
       }
       return files
         .pipe(config.watch.jshint ? $.jshint() : $.util.noop())
@@ -26,7 +27,10 @@ var Watch = function (gulp, $, config, utils) {
   });
 
   gulp.task('css_app', function () {
-    $.watch({ glob: config.files.CSS_APP }, function () {
+    $.watch({
+      glob: config.files.CSS_APP,
+      emitOnGlob: false
+    }, function () {
       return gulp.src('app/app.' + config.options.cssPreprocessorExt)
         .pipe(config.watch.cssSourceMap ? $.sourcemaps.init() : $.util.noop())
         .pipe($[config.options.cssPreprocessor]().on('error', utils.handleError))
@@ -37,7 +41,10 @@ var Watch = function (gulp, $, config, utils) {
   });
 
   gulp.task('css_bootstrap', function () {
-    $.watch({ glob: config.files.CSS_BOOTSTRAP }, function () {
+    $.watch({
+      glob: config.files.CSS_BOOTSTRAP,
+      emitOnGlob: false
+    }, function () {
       return gulp.src('app/bootstrap.' + config.options.cssPreprocessorExt)
         .pipe($.plumber())
         .pipe(config.watch.cssSourceMap ? $.sourcemaps.init() : $.util.noop())

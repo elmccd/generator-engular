@@ -6,7 +6,7 @@ var chalk = require('chalk');
 var _ = require('underscore');
 var yeoman = require('yeoman-generator');
 var ngParseModule = require('ng-parse-module');
-var utils = require('../utils.js');
+var utils = require('../../utils.js');
 _.str = require('underscore.string');
 
 var ModuleGenerator = yeoman.generators.NamedBase.extend({
@@ -14,7 +14,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
   init: function (promptedModuleName) {
     //yeoman.generators.NamedBase.apply(this, arguments);
     this.promptedModuleName = promptedModuleName;
-    this.pkg = require('../package.json');
+    this.pkg = require('../../package.json');
     this.on('end', function () {
       var modules = this.config.get('modules');
       if (!modules) {

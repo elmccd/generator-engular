@@ -1,7 +1,7 @@
 'use strict';
 var fs = require('fs');
 var util = require('util');
-var utils = require('../utils.js');
+var utils = require('../../utils.js');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var _ = require('underscore');
@@ -46,16 +46,16 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
 
   files: function () {
     console.log(this.module, this.name);
-    this.copy('directive.js.tpl', path.join('app', this.moduleDir, 'directives', this.name, this.name + '-directive.js'));
-    this.copy('directive-spec.js', path.join('app', this.moduleDir, 'directives', this.name, this.name + '-directive-spec.js'));
-    this.copy('directive.html', path.join('app', this.moduleDir, 'directives', this.name, this.name + '-directive.html'));
-    this.copy('directive.less', path.join('app', this.moduleDir, 'directives', this.name, this.name + '-directive.less'));
+    this.copy('directive.js.tpl', path.join('app', this.moduleDir, 'directives', this.name, this.name + '.directive.js'));
+    this.copy('directive-spec.js', path.join('app', this.moduleDir, 'directives', this.name, this.name + '.directive.unit.js'));
+    this.copy('directive.html', path.join('app', this.moduleDir, 'directives', this.name, this.name + '.directive.html'));
+    this.copy('directive.less', path.join('app', this.moduleDir, 'directives', this.name, this.name + '.directive.less'));
 
     //update angular_modules.less
-    utils.appendImport(path.join(this.moduleDir, 'directives', this.name, this.name + '-directive.less'), 'app/styles/modules_angular.less', false);
+    utils.appendImport(path.join(this.moduleDir, 'directives', this.name, this.name + '.directive.less'), 'app/styles/modules.less', false);
 
     //update index.html
-    utils.insertScript(path.join(this.moduleDir, 'directives', this.name, this.name + '-directive.js'), '<!-- Add New Component JS Above -->');
+    utils.insertScript(path.join(this.moduleDir, 'directives', this.name, this.name + '.directive.js'), '<!-- Add New Component JS Above -->');
   }
 });
 

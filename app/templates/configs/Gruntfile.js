@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         ],
         html5Mode: false,
         startPagegrunt: '/api',
-        title: "To.Do Docs",
+        title: "Docs",
         titleLink: "/",
         bestMatch: true
       },

@@ -1,7 +1,7 @@
 'use strict';
 var fs = require('fs');
 var util = require('util');
-var utils = require('../utils.js');
+var utils = require('../../utils.js');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var _ = require('underscore');
@@ -55,19 +55,19 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
   },
 
   files: function () {
-    this.copy('partial.js.tpl', path.join('app', this.moduleDir, 'partials', this.name, this.name + '-partial.js'));
-    this.copy('partial-spec.js', path.join('app', this.moduleDir, 'partials', this.name, this.name + '-partial-spec.js'));
-    this.copy('partial.html', path.join('app', this.moduleDir, 'partials', this.name, this.name + '-partial.html'));
-    this.copy('partial.less', path.join('app', this.moduleDir, 'partials', this.name, this.name + '-partial.less'));
+    this.copy('partial.js.tpl', path.join('app', this.moduleDir, 'partials', this.name, this.name + '.partial.js'));
+    this.copy('partial-spec.js', path.join('app', this.moduleDir, 'partials', this.name, this.name + '.partial.unit.js'));
+    this.copy('partial.html', path.join('app', this.moduleDir, 'partials', this.name, this.name + '.partial.html'));
+    this.copy('partial.less', path.join('app', this.moduleDir, 'partials', this.name, this.name + '.partial.less'));
 
     //update angular_modules.less
-    utils.appendImport(path.join(this.moduleDir, 'partials', this.name, this.name + '-partial.less'), 'app/styles/modules_angular.less', false);
+    utils.appendImport(path.join(this.moduleDir, 'partials', this.name, this.name + '.partial.less'), 'app/styles/modules.less', false);
 
     //update index.html
-    utils.insertScript(path.join(this.moduleDir, 'partials', this.name, this.name + '-partial.js'), '<!-- Add New Component JS Above -->');
+    utils.insertScript(path.join(this.moduleDir, 'partials', this.name, this.name + '.partial.js'), '<!-- Add New Component JS Above -->');
 
     //update module
-    this.templateUrl = path.join(this.moduleDir, 'partials', this.name, this.name + '-partial.html');
+    this.templateUrl = path.join(this.moduleDir, 'partials', this.name, this.name + '.partial.html');
 
     var controllerTemplate = this.src.read('routeTemplate.js');
     var compiled = _.template(controllerTemplate);

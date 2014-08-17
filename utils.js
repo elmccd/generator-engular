@@ -13,7 +13,7 @@ var utils = {};
  */
 utils.insertScript = function (fromPath, delimiter) {
   var filePath = path.normalize(fromPath);
-  var newContent = '<script src="/' + filePath + '"></script>\n';
+  var newContent = '<script src="/' + filePath + '"></script>';
 
   fs.readFile('app/index.html', 'utf8', function (err, data) {
     if (err) {
