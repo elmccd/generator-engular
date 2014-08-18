@@ -4,7 +4,7 @@ var path = require('path');
 var fs = require('fs');
 var assert = require('assert');
 var helpers = require('yeoman-generator').test;
-
+var exec = require('child_process').exec;
 
 var dirName = 'temp';
 var generatorName = 'generator-engular';
@@ -19,7 +19,7 @@ var expected = [
 ];
 
 describe('engular generator', function () {
-  this.timeout(120e3);
+  this.timeout(240e3);
 
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, dirName), function (err) {
@@ -84,11 +84,11 @@ describe('engular generator', function () {
       'cssPreprocessor': 'less'
     });
 
-    this.app.options['skip-install'] = true;
+    this.app.options['skip-install'] = false;
 
     this.app.run({}, function () {
       var yorc;
-      assert.doesNotThrow(function() {
+      assert.doesNotThrow(function () {
         yorc = JSON.parse(fs.readFileSync('.yo-rc.json').toString())
       });
       assert.equal(yorc[generatorName].appName, 'myApp');
@@ -96,4 +96,36 @@ describe('engular generator', function () {
       done();
     });
   });
+
+
+  it('should install dependencies', function (done) {
+    helpers.mockPrompt(this.app, {
+      'appName': appName,
+      'cssPreprocessor': 'less'
+    });
+
+    this.app.options['skip-install'] = false;
+
+    this.app.run({}, function () {
+      exec('bower install && npm install',
+        function (error, stdout, stderr) {
+          console.log('stdout: ' + stdout);
+          console.log('stderr: ' + stderr);
+          assert.ifError(error);
+          done();
+        });
+    });
+  });
+
+  it('should pass initial tests', function (done) {
+    exec('node_modules/karma/bin/karma start karma.config.js',
+      function (error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        assert.ifError(error);
+        assert.ifError(stderr);
+        done();
+      });
+  });
+
 });
