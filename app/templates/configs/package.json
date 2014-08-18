@@ -9,6 +9,7 @@
   "private": "true",
   "license": "MIT",
   "devDependencies": {
+    "bower": "*",
     "connect": "^3.1.1",
     "connect-livereload": "^0.4.0",
     "express": "^4.8.3",

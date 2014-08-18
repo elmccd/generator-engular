@@ -107,7 +107,7 @@ describe('engular generator', function () {
     this.app.options['skip-install'] = false;
 
     this.app.run({}, function () {
-      exec('bower install && npm install',
+      exec('npm install && node_modules/bower/bin/bower install',
         function (error, stdout, stderr) {
           console.log('stdout: ' + stdout);
           console.log('stderr: ' + stderr);
