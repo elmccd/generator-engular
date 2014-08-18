@@ -1,9 +1,8 @@
-/* jshint -W117, -W109 */
-/* ignore not defined and single quotes */
+/* global describe, beforeEach, it, expect, inject */
 
-describe('<%= name %>', function () {
+describe('greetings', function () {
 
-  beforeEach(module('<%= module %>'));
+  beforeEach(module('<%= appName %>'));
 
   var scope, compile;
 

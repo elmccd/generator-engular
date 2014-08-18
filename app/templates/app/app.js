@@ -1,7 +1,20 @@
 angular.module('<%= _.camelize(appName) %>', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate']);
 
 angular.module('<%= _.camelize(appName) %>').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  // <% if(includeExamples) { %>
 
+  $stateProvider.state('home', {
+    url: '/',
+    templateUrl: '/common/partials/home/home.partial.html',
+    controller: 'Home',
+    resolve: {
+      features: function (features) {
+        return  features.getAll();
+      }
+    }
+  });
+
+  //  <% } %>
 
   /* Add New States Above */
 

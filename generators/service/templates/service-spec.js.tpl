@@ -1,13 +1,13 @@
-/* global describe, beforeEach, it, expect, inject */
+/* jshint -W117, -W109 */
+/* ignore not defined and single quotes */
 
-describe('<%= name %>', function() {
+describe('<%= name %>Factory', function() {
 
   beforeEach(module('<%= module %>'));
 
   it('should ...', inject(function(<%= name %>) {
 
-    //expect(<%= _.camelize(name) %>.doSomething()).toEqual('something');
-    expect(1).toBe(1);
+    expect(<%= name %>Factory.getAll().count()).toEqual(3);
 
   }));
 

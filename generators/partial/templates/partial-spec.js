@@ -1,4 +1,5 @@
-/* global describe, beforeEach, it, expect, inject */
+/* jshint -W117, -W109 */
+/* ignore not defined and single quotes */
 
 describe('<%= ctrlname %>', function () {
 

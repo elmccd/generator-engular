@@ -24,12 +24,12 @@ var Docs = function (gulp, $, config) {
 
   gulp.task('docs_server', function () {
     $.connect.server({
-      root: 'docs',
+      root: ['docs', 'app'],
       port: config.docs.port
     });
 
-    if(config.docs.openBrowser) {
-       opn('http://localhost:' + config.docs.port);
+    if (config.docs.openBrowser) {
+      opn('http://localhost:' + config.docs.port);
     }
   });
 };

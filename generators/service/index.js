@@ -46,7 +46,7 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
   files: function () {
     console.log(this.module, this.name);
     this.copy('service.js.tpl', path.join('app', this.moduleDir, 'services', this.name, this.name + '.service.js'));
-    this.copy('service-spec.js.tpl', path.join('app', this.moduleDir, 'services', this.name, this.name + '.service-spec.js'));
+    this.copy('service-spec.js.tpl', path.join('app', this.moduleDir, 'services', this.name, this.name + '.service.unit.js'));
 
     //update index.html
     utils.insertScript(path.join(this.moduleDir, 'services', this.name, this.name + '.service.js'), '<!-- Add New Component JS Above -->');

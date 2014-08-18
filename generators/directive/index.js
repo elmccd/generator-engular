@@ -39,7 +39,7 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
         name: props.module
       }).path;
 
-      this.templateUrl = path.join(this.moduleDir, 'directives', this.name, this.name + '-directive.html');
+      this.templateUrl = path.join(this.moduleDir, 'directives', this.name, this.name + '.directive.html');
       done();
     }.bind(this));
   },

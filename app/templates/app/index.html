@@ -96,9 +96,16 @@
 
 <!-- build:js app.js -->
 <script src="/app.js"></script>
+<% if(includeExamples) { %>
+<!-- engular examples files -->
+<script src="/common/filters/uppercase/uppercase.filter.js"></script>
+<script src="/common/directives/greetings/greetings.directive.js"></script>
+<script src="/common/partials/home/home.partial.js"></script>
+<script src="/common/services/features/features.service.js"></script>
+<% } %>
+
 <!-- Add New Component JS Above -->
 <!-- endbuild -->
-
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>

@@ -1,11 +1,11 @@
 /**
  * @ngdoc filter
- * @name engularTests.filter:uppercase
+ * @name <%= appName %>.filter:uppercase
  * @description
  * Return string in upper-case
  *
  * @example
- <doc:example module="engularTests">
+ <doc:example module="<%= appName %>">
 
  <doc:source>
   <input ng-model="text"><br/>
@@ -13,12 +13,6 @@
  </doc:source>
 
  <doc:scenario>
- it("should have filter name in title", function() {
-    browser.getTitle().then(function(title) {
-      expect(title.indexOf('uppercase')).toBeGreaterThan(-1);
-    });
-  });
-
  it('should return empty string if model is not defined', function() {
     expect(element(by.binding('text')).getText()).toBe('');
   });
@@ -45,7 +39,7 @@
     };
   }
 
-  angular.module('engularTests').filter('uppercase', uppercaseFilter);
+  angular.module('<%= appName %>').filter('uppercase', uppercaseFilter);
 
 })();
 

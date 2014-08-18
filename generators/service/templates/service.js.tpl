@@ -1,6 +1,6 @@
 /**
  * @ngdoc overview
- * @name <%= module %>.controller:<%= ctrlname %>
+ * @name <%= module %>.service:<%= name %>
  * @description
  */
 
@@ -12,6 +12,6 @@
     return <%= name %>;
   }
 
-  angular.module('<%= module %>').factory('<%= name %>', <%= name %>Service);
+  angular.module('<%= module %>').factory('<%= name %>Factory', <%= name %>Service);
 
 })();

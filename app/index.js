@@ -49,12 +49,19 @@ var EngularGenerator = yeoman.generators.Base.extend({
             value: 'stylus'
           }
         ]
+      },
+      {
+        name: 'includeExamples',
+        type: 'confirm',
+        message: 'Do yo want to include examples? (recommended for first usage)',
+        default: true
       }
     ];
 
     this.prompt(prompts, function (props) {
       this.appName = _.str.camelize(props.appName);
       this.cssPreprocessor = props.cssPreprocessor;
+      this.includeExamples = props.includeExamples;
 
       this.config.set('modules', [
         {
@@ -87,6 +94,9 @@ var EngularGenerator = yeoman.generators.Base.extend({
     this.mkdir('app/styles/themes');
     this.mkdir('app/styles/tools');
 
+    if (this.includeExamples) {
+      this.directory('examples', 'app');
+    }
   },
 
   projectfiles: function () {
