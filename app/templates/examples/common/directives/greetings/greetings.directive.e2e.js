@@ -1,6 +1,6 @@
 /* jshint -W117, -W109 */
 /* ignore not defined and single quotes */
-describe('<%= appName %>', function () {
+describe('<%= appName %> greetings directive', function () {
 
   beforeEach(function () {
     browser.get('http://localhost:5001/#/api/<%= appName %>.directive:greetings');

@@ -1,6 +1,6 @@
 /* global describe, beforeEach, it, expect, inject */
 
-describe('Home', function () {
+describe('Home controller', function () {
 
   beforeEach(module('<%= appName %>'));
 

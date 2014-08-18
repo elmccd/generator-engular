@@ -1,6 +1,6 @@
 /* jshint -W117, -W109 */
 /* ignore not defined and single quotes */
-describe('uppercase', function () {
+describe('<%= appName %> - directive uppercase', function () {
 
   beforeEach(module('<%= appName %>'));
 

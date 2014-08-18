@@ -23,7 +23,7 @@ var Server = function (gulp, $, config) {
 
     server.listen(config.server.port);
 
-    if(config.server.openBrowser) {
+    if (config.server.openBrowser) {
       opn('http://localhost:' + config.server.port);
     }
 

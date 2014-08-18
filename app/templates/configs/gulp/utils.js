@@ -3,7 +3,7 @@ var notifier = new Notification();
 var _string = require('underscore.string');
 var path = require('path');
 
-var Utils = function ($) {
+var Utils = function (gulp, $) {
   var utils = {};
 
   utils.prepareNotificationMessage = function (message) {
@@ -13,8 +13,8 @@ var Utils = function ($) {
   utils.handleError = function (err) {
     $.util.log($.util.colors.red(err.toString()));
     notifier.notify({
-      "title": "Error in " + err.plugin,
-      "message": utils.prepareNotificationMessage(err.message)
+      'title': 'Error in ' + err.plugin,
+      'message': utils.prepareNotificationMessage(err.message)
     });
     this.emit('end');
   };

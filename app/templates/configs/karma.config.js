@@ -2,7 +2,7 @@
 // Generated on Sun Aug 17 2014 16:44:13 GMT+0200 (CEST)
 var wiredep = require('wiredep');
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)

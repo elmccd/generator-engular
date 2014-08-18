@@ -25,13 +25,13 @@ Config.watch = {
 
 Config.files = {
   CSS_APP: [
-      'app/common/**/*.' + Config.options.cssPreprocessorExt,
-      'app/modules/**/*.' + Config.options.cssPreprocessorExt,
-      'app/styles/**/*.' + Config.options.cssPreprocessorExt,
-      '!app/styles/themes/**/*.' + Config.options.cssPreprocessorExt
+    'app/common/**/*.' + Config.options.cssPreprocessorExt,
+    'app/modules/**/*.' + Config.options.cssPreprocessorExt,
+    'app/styles/**/*.' + Config.options.cssPreprocessorExt,
+    '!app/styles/themes/**/*.' + Config.options.cssPreprocessorExt
   ],
   CSS_BOOTSTRAP: [
-      'app/styles/themes/**/*.' + Config.options.cssPreprocessorExt
+    'app/styles/themes/**/*.' + Config.options.cssPreprocessorExt
   ],
   HTML: [
     'app/**/*.html',

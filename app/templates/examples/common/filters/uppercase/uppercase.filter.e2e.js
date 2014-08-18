@@ -1,6 +1,6 @@
 /* jshint -W117, -W109 */
 /* ignore not defined and single quotes */
-describe('Uppercase Filter', function () {
+describe('<%= appName %> - filter uppercase', function () {
 
   beforeEach(function () {
     browser.get('http://localhost:5001/#/api/<%= appName %>.filter:uppercase');

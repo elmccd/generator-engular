@@ -11,8 +11,8 @@
  <doc:example module="<%= appName %>">
 
  <doc:source>
-
- <greetings to="Engular"></greetings>
+ <input ng-model="greatingsTarget">
+ <greetings to="{{greatingsTarget}}"></greetings>
 
  <style>
  /* CSS source * /
