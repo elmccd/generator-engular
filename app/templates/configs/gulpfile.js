@@ -21,11 +21,15 @@ require('./gulp/lint.js')(gulp, $, config);
 
 
 gulp.task('default', function () {
-  return runSequence(['wiredep', 'styles'], ['server', 'docs', 'watch']);
+  return runSequence('wiredep', 'build', ['server', 'docs', 'watch']);
 });
 
 gulp.task('watch', ['css_app', 'css_bootstrap', 'html', 'js'], function () {
   //gulp.watch('bower.json', ['wiredep']);
+});
+
+gulp.task('build', function () {
+  return runSequence('styles', 'dist');
 });
 
 gulp.task('docs', function () {

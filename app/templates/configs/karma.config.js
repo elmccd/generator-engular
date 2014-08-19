@@ -1,6 +1,5 @@
 // Karma configuration
 // Generated on Sun Aug 17 2014 16:44:13 GMT+0200 (CEST)
-var wiredep = require('wiredep');
 
 module.exports = function (config) {
   config.set({
@@ -15,12 +14,12 @@ module.exports = function (config) {
 
 
     // list of files / patterns to load in the browser
-    files: wiredep().js.concat([
-      'app/app.css',
-      'app/app.js',
-      'app/common/**/*.js',
-      'app/modules/**/*.js'
-    ]),
+    files: [
+      'dist/vendors.js',
+      'dist/app.js',
+      'app/common/**/*.unit.js',
+      'app/modules/**/*.unit.js'
+    ],
 
 
     // list of files to exclude

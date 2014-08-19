@@ -97,35 +97,4 @@ describe('engular generator', function () {
     });
   });
 
-
-  it('should install dependencies', function (done) {
-    helpers.mockPrompt(this.app, {
-      'appName': appName,
-      'cssPreprocessor': 'less'
-    });
-
-    this.app.options['skip-install'] = false;
-
-    this.app.run({}, function () {
-      exec('npm install && node_modules/bower/bin/bower install',
-        function (error, stdout, stderr) {
-          console.log('stdout: ' + stdout);
-          console.log('stderr: ' + stderr);
-          assert.ifError(error);
-          done();
-        });
-    });
-  });
-
-  it('should pass initial tests', function (done) {
-    exec('node_modules/karma/bin/karma start karma.config.js',
-      function (error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
-        assert.ifError(error);
-        assert.ifError(stderr);
-        done();
-      });
-  });
-
 });

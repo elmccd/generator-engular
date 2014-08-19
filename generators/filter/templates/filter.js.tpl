@@ -33,13 +33,13 @@
 
 (function () {
 
-  function <%= name %>Filter() {
+  function <%= name %>() {
     return function (input, arg) {
       return 'output';
     };
   }
 
-  angular.module('<%= module %>').filter('<%= name %>', <%= name %>Filter);
+  angular.module('<%= module %>').filter('<%= name %>', <%= name %>);
 
 })();
 

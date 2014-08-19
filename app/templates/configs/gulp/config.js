@@ -41,10 +41,8 @@ Config.files = {
     'app/common/**/*.js',
     'app/modules/**/*.js',
     'app/app.js',
-    '!app/**/*-spec.js'
-  ],
-  JS_SPEC: [
-    'app/**/*-spec.js'
+    '!app/**/*.unit.js',
+    '!app/**/*.e2e.js'
   ]
 };
 
