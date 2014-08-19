@@ -3,7 +3,7 @@
 > Yeoman generator for Angular projects with:
 > * [Modular code organization](#modular-code-organization)
 > * [Subgenerators](#subgenerators)
-> * [Gulp build system](#Gulp-tasks)
+> * [Gulp build system](#gulp-tasks)
 > * support for SASS/LESS/Stylus
 > * [live ngdocs documentation](#ngdocs)
 > * [Unit and e2e tests](#tests)
