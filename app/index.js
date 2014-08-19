@@ -95,7 +95,8 @@ var EngularGenerator = yeoman.generators.Base.extend({
     this.mkdir('app/styles/tools');
 
     if (this.includeExamples) {
-      this.directory('examples', 'app');
+      this.directory('examples/common', 'app/common');
+      this.directory('examples/styles/' + this.cssPreprocessor + '/common', 'app/common');
     }
   },
 
