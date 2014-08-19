@@ -1,31 +1,32 @@
 # generator-engular [![Build Status](https://secure.travis-ci.org/elmccd/generator-engular.png?branch=master)](https://travis-ci.org/elmccd/generator-engular)
 
-> [Yeoman](http://yeoman.io) generator
-
+> Yeoman generator for Angular projects with:
+> * [Modular code organization](#modular-code-organization)
+> * [Subgenerators](#subgenerators)
+> * [Gulp build system](#Gulp-tasks)
+> * support for SASS/LESS/Stylus
+> * [live ngdocs documentation](#ngdocs)
+> * [Unit and e2e tests](#tests)
+> * Follow [Todd Motto styleguide](http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/)
+> * [Highly configurable](#configuration)
 
 ## Getting Started
 
 ```bash
 $ npm install -g generator-engular
-```
-
-Finally, initiate the generator:
-
-```bash
 $ yo engular
 ```
 
-## Generators
+## Modular code organization
+TBD
+
+## Subgenerators
 
 ```bash
 $ yo engular:module    [module_name]
-
 $ yo engular:partial   [module_name]
-
 $ yo engular:filter    [module_name]
-
 $ yo engular:directive [module_name]
-
 $ yo engular:service   [module_name]
 ```
 
@@ -41,32 +42,33 @@ $ yo engular:service   [module_name]
 
 `gulp serve` - serve app
 
+`gulp lint` - JSHint your js
+
 `gulp` - run `wiredep` `styles` `server` `docs` `watch`
 
-## Running tests
+
+## ngdocs
+TBD
+
+https://github.com/m7r/grunt-ngdocs
+https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation
+
+## Tests
 ###Unit
 ```bash
 $ [sudo] npm install karma-cli -g
 $ karma start karma.config.js
-```
-or
-```bash
-$ node_modules/karma/bin/karma start karma.config.js
 ```
 
 ###e2e
 ```bash
 $ node_modules/protractor/bin/webdriver-manager update
 $ node_modules/protractor/bin/webdriver-manager start
-```
-```bash
-[sudo] npm install protractor -g
-$ protractor protractor_conf.js
-```
-or
-```bash
 $ node_modules/protractor/bin/protractor protractor_conf.js
 ```
+
+## Configuration
+TBD
 
 ## License
 
