@@ -18,7 +18,47 @@ $ yo engular
 ```
 
 ## Modular code organization
-TBD
+```
+app
+├── assets
+├── common - (assigned to module0)
+│   ├── directives
+│   │   └── [directive_name]
+│   │       ├── [directive_name].directive.e2e.js
+│   │       ├── [directive_name].directive.html
+│   │       ├── [directive_name].directive.js
+│   │       ├── [directive_name].directive.styl
+│   │       └── [directive_name].directive.unit.js
+│   ├── filters
+│   │   └── [filter_name]
+│   │       ├── [filter_name].filter.e2e.js
+│   │       ├── [filter_name].filter.js
+│   │       └── [filter_name].filter.unit.js
+│   ├── partials
+│   │   └── [partial_name]
+│   │       ├── [partial_name].partial.html
+│   │       ├── [partial_name].partial.js
+│   │       ├── [partial_name].partial.styl
+│   │       └── [partial_name].partial.unit.js
+│   └── services
+│       └── [service_name]
+│           ├── [service_name].service.js
+│           └── [service_name].service.unit.js
+├── modules
+│   ├── [module1_name]
+│   │   ├── directives
+│   │   ├── filters
+│   │   ├── partials
+│   │   ├── services
+│   │   ├── login.js
+│   │   └── login.less
+│   └── [module2_name]
+├── styles
+├── app.css
+├── app.js (module0)
+└── index.html
+
+```
 
 ## Subgenerators
 
