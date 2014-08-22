@@ -58,10 +58,10 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
     this.copy('partial.js.tpl', path.join('app', this.moduleDir, 'partials', this.name, this.name + '.partial.js'));
     this.copy('partial-spec.js', path.join('app', this.moduleDir, 'partials', this.name, this.name + '.partial.unit.js'));
     this.copy('partial.html', path.join('app', this.moduleDir, 'partials', this.name, this.name + '.partial.html'));
-    this.copy('partial.less', path.join('app', this.moduleDir, 'partials', this.name, this.name + '.partial.less'));
+    this.copy('partial.less', path.join('app', this.moduleDir, 'partials', this.name, this.name + '.partial.' + this.config.get('cssPreprocessorExt')));
 
     //update angular_modules.less
-    utils.appendImport(path.join(this.moduleDir, 'partials', this.name, this.name + '.partial.less'), 'app/styles/modules.less', false);
+    utils.appendImport(path.join(this.moduleDir, 'partials', this.name, this.name + '.partial.' + this.config.get('cssPreprocessorExt')), 'app/styles/modules.' + this.config.get('cssPreprocessorExt'), false);
 
     //update index.html
     utils.insertScript(path.join(this.moduleDir, 'partials', this.name, this.name + '.partial.js'), '<!-- Add New Component JS Above -->');

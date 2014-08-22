@@ -29,7 +29,7 @@ var EngularGenerator = yeoman.generators.Base.extend({
       {
         name: 'appName',
         message: 'What would you like the angular app name to be?',
-        default: path.basename(process.cwd())
+        default: _.str.camelize(path.basename(process.cwd()))
       },
       {
         name: 'cssPreprocessor',
@@ -59,6 +59,12 @@ var EngularGenerator = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
+      var cssPreprocessors = {
+        sass: 'scss',
+        less: 'less',
+        stylus: 'styl'
+      };
+
       this.appName = _.str.camelize(props.appName);
       this.cssPreprocessor = props.cssPreprocessor;
       this.includeExamples = props.includeExamples;
@@ -71,6 +77,8 @@ var EngularGenerator = yeoman.generators.Base.extend({
         }
       ]);
       this.config.set('appName', this.appName);
+      this.config.set('cssPreprocessor', this.cssPreprocessor);
+      this.config.set('cssPreprocessorExt', cssPreprocessors[this.cssPreprocessor]);
       this.config.save();
 
       done();

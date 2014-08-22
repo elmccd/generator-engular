@@ -21,7 +21,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         modules = [];
       }
       modules.push({
-        name: _.str.camelize(this.name),
+        name: this.name,
         dir: path.join(this.dir),
         path: path.join(this.dir, this.name + '.js')
       });
@@ -36,7 +36,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
       console.log(chalk.green(' updating') + ' %s', 'app/app.js');
 
       //update angular_modules.less
-      utils.appendImport(this.dir + this.name + '.less', 'app/styles/modules_angular.less', false);
+      utils.appendImport(this.dir + this.name + '.' + this.config.get('cssPreprocessorExt'), 'app/styles/modules.' + this.config.get('cssPreprocessorExt'), false);
 
       //update index.html
       utils.insertScript(this.dir + this.name + '.js', '<!-- Add New Component JS Above -->');
@@ -45,7 +45,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
   askFor: function () {
     var done = this.async();
 
-    var defaultDir = path.join('modules', this.name, '/');
+    var defaultDir = path.join('modules', _.str.underscored(this.name), '/');
 
     var prompts = [
       {
@@ -64,13 +64,13 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
 
     this.prompt(prompts, function (props) {
       this.dir = props.dir;
-
+      this.name = _.str.camelize(this.name);
       done();
     }.bind(this));
   },
   files: function () {
     this.copy('module.js.tpl', path.join('app', this.dir + this.name + '.js'));
-    this.copy('module.less', path.join('app', this.dir + this.name + '.less'));
+    this.copy('module.less', path.join('app', this.dir + this.name + '.' + this.config.get('cssPreprocessorExt')));
   }
 });
 
