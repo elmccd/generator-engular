@@ -94,7 +94,7 @@ var EngularGenerator = yeoman.generators.Base.extend({
 
     this.mkdir('app/assets/font');
     this.mkdir('app/assets/img');
-    this.mkdir('app/assets/img/sprites');
+    this.mkdir('app/assets/sprites');
     this.mkdir('app/common');
     this.mkdir('app/modules');
     this.mkdir('app/styles/base');

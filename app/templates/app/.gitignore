@@ -1,0 +1,5 @@
+dist/
+docs/
+node_modules/
+app/bower_components/
+.idea/
