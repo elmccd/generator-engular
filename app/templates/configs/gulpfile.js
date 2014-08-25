@@ -13,23 +13,31 @@ require('./gulp/docs.js')(gulp, $, config);
 
 require('./gulp/styles.js')(gulp, $, config, utils);
 
-require('./gulp/watch.js')(gulp, $, config, utils);
-
 require('./gulp/bower.js')(gulp, $, config);
 
 require('./gulp/lint.js')(gulp, $, config);
+
+require('./gulp/sprite.js')(gulp, $, config, utils);
+
+require('./gulp/watch.js')(gulp, $, config, utils);
 
 
 gulp.task('default', function () {
   return runSequence('wiredep', 'build', ['server', 'docs', 'watch']);
 });
 
-gulp.task('watch', ['css_app', 'css_bootstrap', 'html', 'js'], function () {
+gulp.task('watch', [
+  'watch_css_app',
+  'watch_css_bootstrap',
+  'watch_html',
+  'watch_js',
+  'watch_sprite'
+], function () {
   //gulp.watch('bower.json', ['wiredep']);
 });
 
 gulp.task('build', function () {
-  return runSequence('styles', 'dist');
+  return runSequence('styles', 'sprite', 'dist');
 });
 
 gulp.task('docs', function () {

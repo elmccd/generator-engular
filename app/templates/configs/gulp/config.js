@@ -43,6 +43,9 @@ Config.files = {
     'app/app.js',
     '!app/**/*.unit.js',
     '!app/**/*.e2e.js'
+  ],
+  SPRITES: [
+    'app/assets/sprites/**/*.png'
   ]
 };
 

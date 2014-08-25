@@ -1,7 +1,7 @@
 var runSequence = require('run-sequence');
 var Watch = function (gulp, $, config, utils) {
 
-  gulp.task('js', function () {
+  gulp.task('watch_js', function () {
     $.watch({
       glob: config.files.JS,
       emitOnGlob: false
@@ -16,7 +16,7 @@ var Watch = function (gulp, $, config, utils) {
     });
   });
 
-  gulp.task('html', function () {
+  gulp.task('watch_html', function () {
     $.watch({
       glob: config.files.HTML,
       emitOnGlob: false
@@ -26,7 +26,7 @@ var Watch = function (gulp, $, config, utils) {
     });
   });
 
-  gulp.task('css_app', function () {
+  gulp.task('watch_css_app', function () {
     $.watch({
       glob: config.files.CSS_APP,
       emitOnGlob: false
@@ -40,7 +40,7 @@ var Watch = function (gulp, $, config, utils) {
     });
   });
 
-  gulp.task('css_bootstrap', function () {
+  gulp.task('watch_css_bootstrap', function () {
     $.watch({
       glob: config.files.CSS_BOOTSTRAP,
       emitOnGlob: false
@@ -54,6 +54,16 @@ var Watch = function (gulp, $, config, utils) {
         .pipe(config.server.liveReload ? $.livereload(config.server.liveReloadPort) : $.util.noop());
     });
   });
+
+  gulp.task('watch_sprite', function () {
+    $.watch({
+      glob: config.files.SPRITES,
+      emitOnGlob: false
+    }, function () {
+      return runSequence('sprite');
+    });
+  });
+
 };
 
 module.exports = Watch;
