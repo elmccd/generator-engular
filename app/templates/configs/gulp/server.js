@@ -15,10 +15,10 @@ var Server = function (gulp, $, config) {
       $.livereload.listen(config.server.liveReloadPort);
     }
 
-    server.use(express.static('./app'));
+    server.use(express.static(config.server.directory));
 
     server.all('/*', function (req, res) {
-      res.sendFile('index.html', { root: 'app' });
+      res.sendFile('index.html', { root: config.server.directory });
     });
 
     server.listen(config.server.port);
