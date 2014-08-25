@@ -51,8 +51,8 @@ var PartialGenerator = yeoman.generators.NamedBase.extend({
     this.copy('directive.html', path.join('app', this.moduleDir, 'directives', this.name, this.name + '.directive.html'));
     this.copy('directive.less', path.join('app', this.moduleDir, 'directives', this.name, this.name + '.directive.' + this.config.get('cssPreprocessorExt')));
 
-    //update angular_modules.less
-    utils.appendImport(path.join(this.moduleDir,'directives', this.name, this.name + '.directive.' + this.config.get('cssPreprocessorExt')), 'app/styles/modules.' + this.config.get('cssPreprocessorExt'), false);
+    //update modules.style
+    utils.appendImport(path.join(this.moduleDir, 'directives', this.name, this.name + '.directive.' + this.config.get('cssPreprocessorExt')), 'app/styles/modules.' + this.config.get('cssPreprocessorExt'), false);
 
     //update index.html
     utils.insertScript(path.join(this.moduleDir, 'directives', this.name, this.name + '.directive.js'), '<!-- Add New Component JS Above -->');

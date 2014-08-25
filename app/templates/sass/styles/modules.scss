@@ -1,3 +1,4 @@
 <% if(includeExamples) { %>
 @import "../common/partials/home/home.partial.scss";
+@import "../common/directives/greetings/greetings.directive.scss";
 <% } %>
