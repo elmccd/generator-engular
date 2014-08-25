@@ -15,6 +15,7 @@
 ```bash
 $ npm install -g generator-engular
 $ yo engular
+$ gulp
 ```
 
 ## Modular code organization
@@ -72,25 +73,24 @@ $ yo engular:service   [module_name]
 
 ## Gulp tasks
 
-`gulp wiredep` - inject bower dependencies to index.html
-
-`gulp styles` - build styles
-
-`gulp watch` - watch for html, css, js changes
-
-`gulp docs` - build and serve ngdocs
+`gulp build` - run wiredep, styles, sprites, and create dist
 
 `gulp serve` - serve app
 
-`gulp lint` - JSHint your js
+`gulp serve --dist` - serve dist
 
-`gulp` - run `wiredep` `styles` `server` `docs` `watch`
+`gulp docs` - build and serve docs
+
+`gulp watch` - Watch all files, run styles, livereload, update ngdocs
+
+`gulp` - run `server` `docs` `watch`
 
 
 ## ngdocs
 TBD
 
 https://github.com/m7r/grunt-ngdocs
+
 https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation
 
 ## Tests
@@ -104,7 +104,8 @@ $ karma start karma.config.js
 ```bash
 $ node_modules/protractor/bin/webdriver-manager update
 $ node_modules/protractor/bin/webdriver-manager start
-$ node_modules/protractor/bin/protractor protractor_conf.js
+$ [sudo] npm install protractor -g
+$ protractor protractor_conf.js
 ```
 
 ## Configuration
