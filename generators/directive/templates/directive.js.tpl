@@ -41,7 +41,7 @@
       scope: {
 
       },
-      templateUrl: '<%= templateUrl %>',
+      templateUrl: '/<%= templateUrl %>',
       link: function (scope, element, attrs, fn) {
 
       }

@@ -7,7 +7,7 @@ var Watch = function (gulp, $, config, utils) {
       emitOnGlob: false
     }, function (files) {
       if (config.watch.updateDocs) {
-        return runSequence('dist', 'ngdocs');
+        //return runSequence('dist', 'ngdocs');
       }
       return files
         .pipe(config.watch.jshint ? $.jshint() : $.util.noop())

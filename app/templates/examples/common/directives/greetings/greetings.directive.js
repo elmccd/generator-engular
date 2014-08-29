@@ -41,7 +41,7 @@
       scope: {
         to: '@'
       },
-      templateUrl: 'common/directives/greetings/greetings.directive.html'
+      templateUrl: '/common/directives/greetings/greetings.directive.html'
     };
   }
 
