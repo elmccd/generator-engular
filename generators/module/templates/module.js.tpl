@@ -9,7 +9,7 @@
 
   function <%= _.camelize(name) %>Config($stateProvider) {
 
-    /* Add New States Above */
+/* Add New States Above */
   }
 
   angular.module('<%= _.camelize(name) %>', ['ui.router']);

@@ -1,4 +1,10 @@
-angular.module('<%= _.camelize(appName) %>', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate']);
+try {
+  angular.module('partials');
+} catch (e) {
+  angular.module('partials', []);
+}
+
+angular.module('<%= _.camelize(appName) %>', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'partials']);
 
 angular.module('<%= _.camelize(appName) %>').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   // <% if(includeExamples) { %>
@@ -16,7 +22,7 @@ angular.module('<%= _.camelize(appName) %>').config(function ($stateProvider, $u
 
   //  <% } %>
 
-  /* Add New States Above */
+/* Add New States Above */
 
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/');

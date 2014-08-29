@@ -12,12 +12,12 @@ module.exports = function (grunt) {
         ],
         html5Mode: false,
         startPagegrunt: '/api',
-        title: "Docs",
-        titleLink: "/",
+        title: 'Docs',
+        titleLink: '/',
         bestMatch: true
       },
       api: {
-        src: ['dist/app.js'],
+        src: ['dist/app.prod.js'],
         title: 'API Documentation'
       }
     }
