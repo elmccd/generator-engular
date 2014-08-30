@@ -51,6 +51,25 @@ var EngularGenerator = yeoman.generators.Base.extend({
         ]
       },
       {
+        name: 'htmlMarkup',
+        type: 'list',
+        message: 'Choose your markup language',
+        choices: [
+          {
+            name: 'HTML',
+            value: 'html'
+          },
+          {
+            name: 'HAML',
+            value: 'haml'
+          },
+          {
+            name: 'Jade',
+            value: 'jade'
+          }
+        ]
+      },
+      {
         name: 'libraries',
         type: 'checkbox',
         message: 'Which libs you want to use?',
@@ -101,6 +120,7 @@ var EngularGenerator = yeoman.generators.Base.extend({
 
       this.appName = _.str.camelize(props.appName);
       this.cssPreprocessor = props.cssPreprocessor;
+      this.htmlMarkup = props.htmlMarkup;
       this.includeExamples = props.includeExamples;
       this.libraries = props.libraries;
 
@@ -117,6 +137,7 @@ var EngularGenerator = yeoman.generators.Base.extend({
       ]);
       this.config.set('appName', this.appName);
       this.config.set('cssPreprocessor', this.cssPreprocessor);
+      this.config.set('htmlMarkup', this.htmlMarkup);
       this.config.set('cssPreprocessorExt', cssPreprocessors[this.cssPreprocessor]);
       this.config.save();
 

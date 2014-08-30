@@ -11,6 +11,8 @@ require('./gulp/docs.js')(gulp, $, config);
 
 require('./gulp/styles.js')(gulp, $, config, utils);
 
+require('./gulp/html.js')(gulp, $, config, utils);
+
 require('./gulp/bower.js')(gulp, $, config);
 
 require('./gulp/lint.js')(gulp, $, config);
@@ -26,7 +28,8 @@ var tasks = {
     'wiredep',
     'styles',
     'sprite',
-    'svg'
+    'svg',
+    'html'
   ],
   dist: [
     'dist_partials',

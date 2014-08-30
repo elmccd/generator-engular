@@ -20,9 +20,12 @@ var Watch = function (gulp, $, config, utils) {
     $.watch({
       glob: config.files.HTML,
       emitOnGlob: false
-    }, function () {
-      return gulp.src('app/index.html')
-        .pipe(config.server.liveReload ? $.livereload(config.server.liveReloadPort) : $.util.noop());
+    }, function (files) {
+      return files
+        .pipe($.if(config.options.htmlMarkup === 'jade', $.jade()))
+        .pipe($.if(config.options.htmlMarkup === 'haml', $.haml()))
+        .pipe($.if(config.server.liveReload, $.livereload(config.server.liveReloadPort)))
+        .pipe(gulp.dest('./'));
     });
   });
 

@@ -4,7 +4,8 @@ var Config = {};
 
 Config.options = {
   cssPreprocessor: '<%= cssPreprocessor %>',
-  cssPreprocessorExt: '<%= cssPreprocessor === "stylus" ? "styl" : (cssPreprocessor === "sass" ? "scss" : cssPreprocessor) %>'
+  cssPreprocessorExt: '<%= cssPreprocessor === "stylus" ? "styl" : (cssPreprocessor === "sass" ? "scss" : cssPreprocessor) %>',
+  htmlMarkup: '<%= htmlMarkup %>'
 };
 
 Config.server = {
@@ -28,18 +29,18 @@ Config.watch = {
 
 Config.files = {
   CSS_APP: [
-    'app/app' + Config.options.cssPreprocessorExt,
-    'app/common/**/*.' + Config.options.cssPreprocessorExt,
-    'app/modules/**/*.' + Config.options.cssPreprocessorExt,
-    'app/styles/**/*.' + Config.options.cssPreprocessorExt,
-    '!app/styles/themes/**/*.' + Config.options.cssPreprocessorExt
+      'app/app' + Config.options.cssPreprocessorExt,
+      'app/common/**/*.' + Config.options.cssPreprocessorExt,
+      'app/modules/**/*.' + Config.options.cssPreprocessorExt,
+      'app/styles/**/*.' + Config.options.cssPreprocessorExt,
+      '!app/styles/themes/**/*.' + Config.options.cssPreprocessorExt
   ],
   CSS_BOOTSTRAP: [
-    'app/styles/themes/**/*.' + Config.options.cssPreprocessorExt
+      'app/styles/themes/**/*.' + Config.options.cssPreprocessorExt
   ],
   HTML: [
-    'app/**/*.html',
-    '!app/bower_components/**/*.html'
+      'app/**/*.' + Config.options.htmlMarkup,
+      '!app/bower_components/**/*.' + Config.options.htmlMarkup
   ],
   JS: [
     'app/common/**/*.js',
