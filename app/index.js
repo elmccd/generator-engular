@@ -34,7 +34,7 @@ var EngularGenerator = yeoman.generators.Base.extend({
       {
         name: 'cssPreprocessor',
         type: 'list',
-        message: 'Which CSS preprocessor would you like to use? (with equivalent bootstrap version)',
+        message: 'Which CSS preprocessor would you like to use?',
         choices: [
           {
             name: 'SASS',
@@ -47,6 +47,44 @@ var EngularGenerator = yeoman.generators.Base.extend({
           {
             name: 'Stylus',
             value: 'stylus'
+          }
+        ]
+      },
+      {
+        name: 'libraries',
+        type: 'checkbox',
+        message: 'Which libs you want to use?',
+        choices: [
+          {
+            name: 'jQuery',
+            value: 'jQuery'
+          },
+          {
+            name: 'lodash',
+            value: 'lodash'
+          },          {
+            name: 'bootstrap',
+            value: 'bootstrap'
+          },
+          {
+            name: 'angular-ui-router',
+            value: 'angular-ui-router'
+          },
+          {
+            name: 'angular-animate',
+            value: 'angular-animate'
+          },
+          {
+            name: 'angular-resource',
+            value: 'angular-resource'
+          },
+          {
+            name: 'angular-cookies',
+            value: 'angular-cookies'
+          },
+          {
+            name: 'restangular',
+            value: 'restangular'
           }
         ]
       },
@@ -68,7 +106,12 @@ var EngularGenerator = yeoman.generators.Base.extend({
       this.appName = _.str.camelize(props.appName);
       this.cssPreprocessor = props.cssPreprocessor;
       this.includeExamples = props.includeExamples;
+      this.libraries = props.libraries;
 
+
+      this.libraries = _.object(this.libraries, this.libraries.map(function (el) {
+        return !!el;
+      }));
       this.config.set('modules', [
         {
           'name': this.appName,
