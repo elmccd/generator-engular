@@ -67,10 +67,6 @@ var EngularGenerator = yeoman.generators.Base.extend({
             value: 'bootstrap'
           },
           {
-            name: 'angular-ui-router',
-            value: 'angular-ui-router'
-          },
-          {
             name: 'angular-animate',
             value: 'angular-animate'
           },

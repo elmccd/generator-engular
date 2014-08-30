@@ -2,8 +2,7 @@ var Styles = function (gulp, $, config, utils) {
 
   gulp.task('styles', function () {
     return gulp.src([
-        'app/app.' + config.options.cssPreprocessorExt,
-        'app/bootstrap.' + config.options.cssPreprocessorExt
+        'app/app.' + config.options.cssPreprocessorExt
       ])
       .pipe(config.watch.cssSourceMap ? $.sourcemaps.init() : $.util.noop())
       .pipe($[config.options.cssPreprocessor]().on('error', utils.handleError))

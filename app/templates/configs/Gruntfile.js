@@ -8,6 +8,7 @@ module.exports = function (grunt) {
         dest: 'docs',
         scripts: [
           'dist/vendors.js',
+          'node_modules/angular-animate/angular-animate.js',
           'dist/app.js'
         ],
         html5Mode: false,

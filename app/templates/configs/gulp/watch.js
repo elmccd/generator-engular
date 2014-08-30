@@ -40,21 +40,6 @@ var Watch = function (gulp, $, config, utils) {
     });
   });
 
-  gulp.task('watch_css_bootstrap', function () {
-    $.watch({
-      glob: config.files.CSS_BOOTSTRAP,
-      emitOnGlob: false
-    }, function () {
-      return gulp.src('app/bootstrap.' + config.options.cssPreprocessorExt)
-        .pipe($.plumber())
-        .pipe(config.watch.cssSourceMap ? $.sourcemaps.init() : $.util.noop())
-        .pipe($[config.options.cssPreprocessor]().on('error', utils.handleError))
-        .pipe(config.watch.cssSourceMap ? $.sourcemaps.write('./') : $.util.noop())
-        .pipe(gulp.dest('./app'))
-        .pipe(config.server.liveReload ? $.livereload(config.server.liveReloadPort) : $.util.noop());
-    });
-  });
-
   gulp.task('watch_sprite', function () {
     $.watch({
       glob: config.files.SPRITES,

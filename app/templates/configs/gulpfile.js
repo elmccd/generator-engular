@@ -39,7 +39,6 @@ gulp.task('default', function () {
 
 gulp.task('watch', [
   'watch_css_app',
-  'watch_css_bootstrap',
   'watch_html',
   'watch_js',
   'watch_sprite'

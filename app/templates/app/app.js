@@ -4,7 +4,14 @@ try {
   angular.module('partials', []);
 }
 
-angular.module('<%= _.camelize(appName) %>', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'partials']);
+angular.module('<%= _.camelize(appName) %>', [<% if(libraries["ui-router"]) { %>
+  'ngAnimate',<% } if(libraries["angular-resource"]) { %>
+  'ngResource',<% } if(libraries["angular-cookies"]) { %>
+  'ngCookies',<% } if(libraries["restangular"]) { %>
+  'restangular',<% } %>
+  'ui.router',
+  'partials'
+]);
 
 angular.module('<%= _.camelize(appName) %>').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   // <% if(includeExamples) { %>

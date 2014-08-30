@@ -13,13 +13,12 @@
   ],
   "dependencies": {
     "angular": "~1.2"
-    ,"angular-mocks": "~1.2"<% if (libraries.bootstrap && cssPreprocessor === "less") { %>
+    ,"angular-ui-router": "~0.2"<% if (libraries.bootstrap && cssPreprocessor === "less") { %>
     ,"bootstrap": "~3.1"<% } if (libraries.bootstrap && cssPreprocessor === "sass") { %>
     ,"bootstrap-sass": "~3.0.2"<% } if (libraries.bootstrap && cssPreprocessor === "stylus") { %>
     ,"bootstrap-stylus": "~3.2.0"<% } if (libraries.jQuery) { %>
     ,"jquery": "~2.0"<% } if (libraries.lodash) { %>
-    ,"lodash": "~1.5"<% } if (libraries['angular-ui-router']) { %>
-    ,"angular-ui-router": "~0.2"<% } if (libraries['angular-animate']) { %>
+    ,"lodash": "~2.4.1"<% } if (libraries['angular-ui-router']) { %>
     ,"angular-animate": "~1.2"<% } if (libraries['angular-resource']) { %>
     ,"angular-resource": "~1.2"<% } if (libraries['angular-cookies']) { %>
     ,"angular-cookies": "~1.2"<% } if (libraries['restangular']) { %>
