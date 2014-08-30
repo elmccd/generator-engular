@@ -11,13 +11,13 @@ Config.server = {
   port: 5000,
   liveReload: true,
   liveReloadPort: 35729,
-  openBrowser: true,
-  directory: 'app' // 'dist'
+  openBrowser: false,
+  directory: 'app'
 };
 
 Config.docs = {
   port: 5001,
-  openBrowser: true
+  openBrowser: false
 };
 
 Config.watch = {
@@ -28,6 +28,7 @@ Config.watch = {
 
 Config.files = {
   CSS_APP: [
+    'app/app' + Config.options.cssPreprocessorExt,
     'app/common/**/*.' + Config.options.cssPreprocessorExt,
     'app/modules/**/*.' + Config.options.cssPreprocessorExt,
     'app/styles/**/*.' + Config.options.cssPreprocessorExt,
@@ -47,8 +48,11 @@ Config.files = {
     '!app/**/*.unit.js',
     '!app/**/*.e2e.js'
   ],
-  SPRITES: [
-    'app/assets/sprites/**/*.png'
+  ICONS: [
+    'app/assets/sprites/**'
+  ],
+  SVG: [
+    'app/assets/svg-icons/**'
   ]
 };
 
@@ -85,9 +89,9 @@ if (argv.dist) {
   Config.server.directory = 'app';
 }
 
-if(argv.silent) {
-  Config.server.openBrowser = false;
-  Config.docs.openBrowser = false;
+if (argv.open) {
+  Config.server.openBrowser = true;
+  Config.docs.openBrowser = true;
 }
 
 

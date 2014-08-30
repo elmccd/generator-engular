@@ -145,6 +145,7 @@ var EngularGenerator = yeoman.generators.Base.extend({
     if (this.includeExamples) {
       this.directory('examples/common', 'app/common');
       this.directory('examples/styles/' + this.cssPreprocessor + '/common', 'app/common');
+      this.directory('examples/assets', 'app/assets');
     }
   },
 

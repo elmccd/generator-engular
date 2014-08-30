@@ -42,13 +42,21 @@ var Watch = function (gulp, $, config, utils) {
 
   gulp.task('watch_sprite', function () {
     $.watch({
-      glob: config.files.SPRITES,
+      glob: config.files.ICONS,
       emitOnGlob: false
-    }, function () {
+    }, function (files) {
       return runSequence('sprite');
     });
   });
 
+  gulp.task('watch_svg', function () {
+    $.watch({
+      glob: config.files.SVG,
+      emitOnGlob: false
+    }, function () {
+      return runSequence('svg');
+    });
+  });
 };
 
 module.exports = Watch;
