@@ -35,10 +35,12 @@ describe('engular generator', function () {
   });
 
   it('creates expected files with sass', function (done) {
-    var sassFiles = ['app/app.scss', 'app/bootstrap.scss'];
+    var sassFiles = ['app/app.scss'];
     helpers.mockPrompt(this.app, {
       'appName': appName,
-      'cssPreprocessor': 'sass'
+      'cssPreprocessor': 'sass',
+      'htmlMarkup': 'html',
+      'libraries': []
     });
 
     this.app.options['skip-install'] = true;
@@ -49,11 +51,13 @@ describe('engular generator', function () {
   });
 
   it('creates expected files with less', function (done) {
-    var lessFiles = ['app/app.less', 'app/bootstrap.less'];
+    var lessFiles = ['app/app.less'];
 
     helpers.mockPrompt(this.app, {
       'appName': appName,
-      'cssPreprocessor': 'less'
+      'cssPreprocessor': 'less',
+      'htmlMarkup': 'html',
+      'libraries': []
     });
 
     this.app.options['skip-install'] = true;
@@ -64,11 +68,13 @@ describe('engular generator', function () {
   });
 
   it('creates expected files with stylus', function (done) {
-    var stylusFiles = ['app/app.styl', 'app/bootstrap.styl'];
+    var stylusFiles = ['app/app.styl'];
 
     helpers.mockPrompt(this.app, {
       'appName': appName,
-      'cssPreprocessor': 'stylus'
+      'cssPreprocessor': 'stylus',
+      'htmlMarkup': 'html',
+      'libraries': []
     });
 
     this.app.options['skip-install'] = true;
@@ -81,13 +87,15 @@ describe('engular generator', function () {
   it('set options in .yo-rc.json', function (done) {
     helpers.mockPrompt(this.app, {
       'appName': appName,
-      'cssPreprocessor': 'less'
+      'cssPreprocessor': 'sass',
+      'htmlMarkup': 'html',
+      'libraries': []
     });
 
-    this.app.options['skip-install'] = false;
+    this.app.options['skip-install'] = true;
 
     this.app.run({}, function () {
-      var yorc;
+      var yorc = [];
       assert.doesNotThrow(function () {
         yorc = JSON.parse(fs.readFileSync('.yo-rc.json').toString())
       });
