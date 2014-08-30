@@ -1,5 +1,6 @@
 dist/
 docs/
+coverage/
 node_modules/
 app/bower_components/
 .idea/

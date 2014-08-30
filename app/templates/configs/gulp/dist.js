@@ -26,6 +26,7 @@ var Dist = function (gulp, $, config) {
 
   gulp.task('dist_css', function () {
     return gulp.src('app/*.css')
+      .pipe($.autoprefixer(config.dist.options.autoprefixer))
       .pipe($.minifyCss())
       .pipe(gulp.dest('dist'));
   });
