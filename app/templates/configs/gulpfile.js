@@ -23,18 +23,18 @@ require('./gulp/dist.js')(gulp, $, config, utils);
 require('./gulp/watch.js')(gulp, $, config, utils);
 
 
-
-
 gulp.task('default', function () {
   return runSequence([
-    'wiredep', 'styles', 'sprite'
-  ], [
-    'dist_partials', 'dist_css', 'dist_js', 'dist_assets'
-  ], [
-    'minify_app', 'minify_vendors'
-  ], [
-    'server', 'docs', 'watch'
-  ]);
+      'wiredep', 'styles', 'sprite'
+    ], [
+      'dist_partials', 'dist_css', 'dist_js', 'dist_assets'
+    ], [
+      'minify_app', 'minify_vendors'
+    ],
+    'uncache',
+    [
+      'server', 'docs', 'watch'
+    ]);
 });
 
 gulp.task('watch', [
@@ -49,23 +49,30 @@ gulp.task('watch', [
 
 gulp.task('build', function () {
   return runSequence([
-    'wiredep', 'styles', 'sprite'
+    'wiredep',
+    'styles',
+    'sprite'
   ], [
-    'dist_partials', 'dist_css', 'dist_js', 'dist_assets'
+    'dist_partials',
+    'dist_css',
+    'dist_js',
+    'dist_assets'
   ], [
-    'minify_app', 'minify_vendors'
-  ]);
+    'minify_app',
+    'minify_vendors'
+  ], 'uncache', 'info');
 });
 
 gulp.task('docs', function () {
   return runSequence([
-      'dist_partials', 'dist_css', 'dist_js', 'dist_assets'
-    ], [
-      'minify_app', 'minify_vendors'
-    ],
-    'uncache',
-    'ngdocs',
-    'docs_server');
+    'dist_partials',
+    'dist_css',
+    'dist_js',
+    'dist_assets'
+  ], [
+    'minify_app',
+    'minify_vendors'
+  ], 'ngdocs', 'docs_server');
 });
 
 gulp.task('serve', ['server']);

@@ -58,7 +58,7 @@ var Dist = function (gulp, $, config) {
   });
 
   gulp.task('dist', ['dist_clear'], function () {
-    return runSequence(['dist_partials', 'dist_css', 'dist_js', 'dist_assets'], ['minify_app', 'minify_vendors'], 'uncache');
+    return runSequence(['dist_partials', 'dist_css', 'dist_js', 'dist_assets'], ['minify_app', 'minify_vendors'], 'uncache', 'info');
   });
 
   gulp.task('minify_app', function () {
@@ -75,6 +75,21 @@ var Dist = function (gulp, $, config) {
     return gulp.src(['dist/vendors.js'])
       .pipe($.if(config.dist.minifyVendors ? '*.js' : false, $.uglify()))
       .pipe(gulp.dest('dist'));
+  });
+
+  gulp.task('info', function () {
+    return gulp.src([
+      'dist/index.html',
+      'dist/app.js',
+      'dist/app.css',
+      'dist/vendors.js',
+      'dist/vendors.css',
+      'dist/assets/sprites/**'
+    ])
+      .pipe($.size({
+        showFiles: true,
+        gzip: true
+      }));
   });
 };
 
