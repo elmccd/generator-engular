@@ -37,7 +37,7 @@
     "gulp-sass": "^0.7.2",<% } if (cssPreprocessor === "stylus") { %>
     "gulp-stylus": "^1.3.0",<% } if (htmlMarkup === "haml") { %>
     "gulp-haml": "^0.1.0",<% } if (htmlMarkup === "jade") { %>
-    "gulp-jade": "^0.7.0"<% } %>
+    "gulp-jade": "^0.7.0",<% } %>
     "gulp-shell": "^0.2.9",
     "gulp-sourcemaps": "^1.1.1",
     "gulp-util": "^3.0.0",
