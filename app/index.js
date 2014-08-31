@@ -58,15 +58,15 @@ var EngularGenerator = yeoman.generators.Base.extend({
           {
             name: 'HTML',
             value: 'html'
-          },
-          {
-            name: 'HAML',
-            value: 'haml'
-          },
-          {
-            name: 'Jade',
-            value: 'jade'
-          }
+          }//,
+//          {
+//            name: 'HAML',
+//            value: 'haml'
+//          },
+//          {
+//            name: 'Jade',
+//            value: 'jade'
+//          }
         ]
       },
       {
