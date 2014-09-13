@@ -1,7 +1,7 @@
 try {
   angular.module('partials');
 } catch (e) {
-  angular.module('partials', []);
+  angular.module.call(window, 'partials', []);
 }
 
 angular.module('<%= _.camelize(appName) %>', [<% if(libraries["ui-router"]) { %>
