@@ -22,8 +22,8 @@ var Watch = function (gulp, $, config, utils) {
       emitOnGlob: false
     }, function (files) {
       return files
-        .pipe($.if(config.options.htmlMarkup === 'jade', $.jade()))
-        .pipe($.if(config.options.htmlMarkup === 'haml', $.haml()))
+        //.pipe($.if(config.options.htmlMarkup === 'jade', $.jade()))
+        //.pipe($.if(config.options.htmlMarkup === 'haml', $.haml()))
         .pipe($.if(config.server.liveReload, $.livereload(config.server.liveReloadPort)))
         .pipe(gulp.dest('./'));
     });
