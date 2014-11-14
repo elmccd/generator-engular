@@ -24,6 +24,6 @@
     };
   }
 
-  angular.module('<%= module %>').factory('<%= name %>', <%= name %>);
+  angular.module('<%= module %>').service('<%= name %>', <%= name %>);
 
 })();
