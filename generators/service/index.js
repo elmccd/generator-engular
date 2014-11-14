@@ -10,7 +10,7 @@ _.str = require('underscore.string');
 
 var PartialGenerator = yeoman.generators.NamedBase.extend({
   init: function () {
-    console.log('You called the filter subgenerator with the argument ' + this.name + '.');
+    console.log('You called the service subgenerator with the argument ' + this.name + '.');
     this.name = _.str.camelize(this.name);
   },
 
